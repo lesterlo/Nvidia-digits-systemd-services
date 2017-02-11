@@ -1,0 +1,24 @@
+# DIGITS systemd service
+[Unit]
+Description=DIGITS server
+After=local-fs.target network.target
+
+[Service]
+User=www-data
+Environment="CAFFE_ROOT=/opt/nv_digits/nv_caffe"
+#Environment="TORCH_ROOT="
+#Environment="DIGITS_JOBS_DIR=/var/lib/digits/jobs"
+#Environment="DIGITS_LOGFILE_FILENAME=/var/log/digits/digits.log"
+#Environment="DIGITS_LOGFILE_LEVEL="
+#Environment="DIGITS_SERVER_NAME="
+#Environment="DIGITS_MODEL_STORE_URL="
+
+#TimeoutStartSec=10
+ExecStart=/opt/nv_digits/DIGITS/digits-devserver
+Restart=on-failure
+ExecStop=/bin/kill -INT $MAINPID
+KillSignal=SIGINT
+#TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
