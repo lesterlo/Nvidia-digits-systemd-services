@@ -16,10 +16,12 @@ You can use this systemd script to run nvidia digits as services
 ###Auto Install
 1. Run the script
 
-```bash
+ ```bash
 sudo ./install.sh
 ```
+
 ###Manual Install
+
 1. Copy nv-digits.service to /lib/systemd/system
 
  ```bash
@@ -28,35 +30,31 @@ sudo cp nv-digits.service /lib/systemd/system
 2. Enable the service
 
  ```bash
-sudo systemctl enable nv-digits.service
+sudo systemctl enable nv-digits.service   #Enable the server at startup
 ```
 3. Reload the systemd
 
  ```bash
-sudo systemctl daemon-reload
+sudo systemctl daemon-reload              #Reload the systemd daemon
 ```
 After that, Nvidia DIGITS will run at startup
 
 * You can start, stop, restart the Nvidia DIGITS Manually by using the following command
- ```bash
-sudo systemctl start nv-digits.service
-sudo systemctl stop nv-digits.service
-sudo systemctl restart nv-digits.service
- ```
-* You can view the status and console output by using the following command
- ```bash
-sudo systemctl stauts nv-digits.service
-```
 
+ ```bash
+sudo systemctl start nv-digits.service     #Start the DIGITS Server
+sudo systemctl stop nv-digits.service      #Stop the DIGITS Server
+sudo systemctl restart nv-digits.service#  #Restart the DIGITS Server
+```
 * You can view the status and console output by using the following command
  ```bash
-sudo systemctl stauts nv-digits.service
+sudo systemctl stauts nv-digits.service   #View Status
 ```
 
 * You can disable the Nvidia DIGITS service by using the following command
  ```bash
-sudo systemctl disable nv-digits.service
-sudo systemctl stop nv-digits.service
+sudo systemctl disable nv-digits.service  #Don't execute the server at startup
+sudo systemctl stop nv-digits.service     #Stop the DIGITS Server
 ```
 
 ##Reference:
