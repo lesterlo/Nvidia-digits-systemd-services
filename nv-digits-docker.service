@@ -1,0 +1,18 @@
+# DIGITS in nv docker systemd service
+[Unit]
+Description=DIGITS docker server
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/nvidia-docker run -p "Public_port_number":5000 -v "jobs folder on host":/jobs -v "datasets folder on host":/datasets --name nv_digits nvidia/digits:5.0
+
+ExecStop= /usr/bin/nvidia-docker rm -f nv_digits
+
+
+#TimeoutStartSec=100
+#TimeoutStopSec=100
+
+[Install]
+WantedBy=default.target
