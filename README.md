@@ -1,7 +1,7 @@
 # Nvidia-digits-systemd-services
 
 ## Table of Contents
-* [Tested Environment](README.md#Tested Environment)
+* [Tested Environment](README.md#Tested-Environment)
 * [Description](README.md#Description)
 * [Installation](README.md#Installation)
 * [Reference](README.md#Reference)
