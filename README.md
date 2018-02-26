@@ -6,17 +6,28 @@
 * [Installation](README.md#Installation)
 * [Reference](README.md#Reference)
 
-##Tested Environment
+## Tested Environment
 
 OS: Ubuntu Server 16.04.1
 
-##Description
+## Description
 
 You can use this systemd script to run nvidia digits as services
 
-##Installation
+## Tensorflow support
+Modify the digits-devserver script and add the cuda path to solve the import tensorflow problem
+```bash
+#add cuda path
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+ 
+set -e
+python2 -m digits $@
+```
 
-###Auto Install
+## Installation
+
+### Auto Install
 
 1. Run the script
 
@@ -24,7 +35,7 @@ You can use this systemd script to run nvidia digits as services
 sudo ./install.sh
 ```
 
-###Manual Install
+### Manual Install
 
 1. Copy nv-digits.service to /lib/systemd/system
 
@@ -61,5 +72,5 @@ sudo systemctl disable nv-digits.service  #Don't execute the server at startup
 sudo systemctl stop nv-digits.service     #Stop the DIGITS Server
 ```
 
-##Reference:
+## Reference:
 https://github.com/NVIDIA/DIGITS/blob/master/packaging/deb/templates/digits.service
